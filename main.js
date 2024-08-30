@@ -40,7 +40,7 @@ async function fetchTeamStatistics() {
             const currentScore = game.state.score.current; // Acessa o score atual
             const homeTeamLogo = game.homeTeam.logo; // Acessa o logo do time mandante
             const awayTeamLogo = game.awayTeam.logo; // Acessa o logo do time visitante
-            const countryLogo = game.country.logo; // Acessa o logo do país
+        
 
             const gameHTML = `
                 <div class="col-12 league g-0 cell">

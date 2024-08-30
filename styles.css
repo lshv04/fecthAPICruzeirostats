@@ -78,26 +78,42 @@ h2{
 }
 
 
-
-
+.cardmobile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-1);
+    color:var(--color-2);
+    padding:0.5rem;
+}
+.painelmobile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:flex-end;
+    gap:0.2rem;
+    width: 100%;
+    background-color: var(--color-1);
+}
+.scoremobile{
+    margin: 0;
+    font-size: 3rem;
+}
 
 @media (max-width: 768px) {
-    .league img{
-        height: 75px;
-    }
-    .sticker {
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
   
-    .sticker a {
-      font-size: 0.8rem;
-    }
-    p,h2,h3{
-        font-size: 1rem;
-    }
     #game-container{
         display: none;
+    }
+    img{
+        height: 75px;
+    }
+    .sticker a{
+       font-size: 1.5rem;
+    }
+    .sticker{
+        gap:2rem;
     }
   }
   
