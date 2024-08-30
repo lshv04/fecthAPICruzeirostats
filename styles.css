@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap');
+
+*{
+    font-family: "Tektur", sans-serif;
+}
+:root{
+    --color-1:#002a86;
+    --color-2:#fff;
+    --color-3:#f3ae2a;
+    --color-4:#000354;
+   
+
+}
+body{
+    margin: 0;
+    padding:0;
+}
+
+.bord{
+    border: 1px solid black;
+}
+
+
+.league{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-1);
+    
+}
+.gridscore{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap:1rem;
+    background-color: var(--color-1);
+    color:var(--color-2);
+  
+}
+h2{
+    text-align: center;
+    background-color: var(--color-1);
+    color:var(--color-2);
+}
+.score{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--color-1);
+    color:var(--color-2);
+}
+.currentscore{
+    font-size: 3rem;
+}
+.cell{
+    background-color: var(--color-1);
+    padding: 1rem;
+}   
+
+.sticker{
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    background-color: var(--color-3);
+    display: flex;
+    justify-content: center;
+    gap:1.5rem;
+    margin-bottom: 1.5rem;
+    
+
+}
+.sticker a{
+    color:var(--color-4);
+    text-decoration: none;
+}
+.sticker a:hover{
+    filter: brightness(2);
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .league img{
+        height: 75px;
+    }
+    .sticker {
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .sticker a {
+      font-size: 0.8rem;
+    }
+    p,h2,h3{
+        font-size: 1rem;
+    }
+    #game-container{
+        display: none;
+    }
+  }
+  
