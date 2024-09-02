@@ -100,14 +100,16 @@ h2{
     margin: 0;
     font-size: 3rem;
 }
-
-@media (max-width: 768px) {
+#game-container-mobile{
+    margin-bottom: 1rem;
+}
+@media (max-width: 767px) {
   
     #game-container{
         display: none;
     }
     img{
-        height: 75px;
+        height: 70px;
     }
     .sticker a{
        font-size: 1.5rem;
@@ -117,3 +119,11 @@ h2{
     }
   }
   
+  @media (min-width: 768px) {
+  
+  
+    #game-container-mobile{
+        display: none;
+    }
+   
+  }

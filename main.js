@@ -29,41 +29,41 @@ async function fetchTeamStatistics() {
 
         // Adiciona o HTML ao container
         const container = document.querySelector("#game-container");
-        container.innerHTML = '';
+        const containerMobile = document.querySelector("#game-container-mobile");
 
-        // Acessa o array e suas propriedades
+        container.innerHTML = '';
+        containerMobile.innerHTML = '';
+
+        // Gera o HTML para cada jogo
         dataLastFiveGames.forEach((game) => {
-            const homeTeamName = game.homeTeam.name; // Acessa o nome do time mandante
-            const awayTeamName = game.awayTeam.name; // Acessa o nome do time visitante
-            const leagueLogo = game.league.logo; // Acessa o logo da liga
-            const gameDate = new Date(game.date).toLocaleDateString(); // Formata a data
-            const currentScore = game.state.score.current; // Acessa o score atual
-            const homeTeamLogo = game.homeTeam.logo; // Acessa o logo do time mandante
-            const awayTeamLogo = game.awayTeam.logo; // Acessa o logo do time visitante
-        
+            const homeTeamName = game.homeTeam.name || 'Mandante';
+            const awayTeamName = game.awayTeam.name || 'Visitante';
+            const leagueLogo = game.league.logo || 'default-league-logo.png';
+            const gameDate = new Date(game.date).toLocaleDateString() || 'Data';
+            const currentScore = game.state.score.current || '0 - 0';
+            const homeTeamLogo = game.homeTeam.logo || 'default-team-logo.png';
+            const awayTeamLogo = game.awayTeam.logo || 'default-team-logo.png';
 
             const gameHTML = `
                 <div class="col-12 league g-0 cell">
                     <img src="${leagueLogo}" class="img-fluid" alt="Imagem oficial da liga">
                 </div>
                 <div class="col-12 col-md-4 g-0 cell">
-                    <h2 class="">Mandante</h2>
-                    <div class="gridscore ">
-                        
-                        <h3 class="">${homeTeamName || 'Mandante'}</h3>
-                        <img src="${homeTeamLogo || 'default-team-logo.png'}" class="img-fluid" style="height: 50px;" alt="Escudo do time mandante">
+                    <h2>Mandante</h2>
+                    <div class="gridscore">
+                        <h3>${homeTeamName}</h3>
+                        <img src="${homeTeamLogo}" class="img-fluid" style="height: 50px;" alt="Escudo do time mandante">
                     </div>
                 </div>
                 <div class="col-12 col-md-4 score g-0 cell">
-                    <p>${gameDate || 'Data'}</p>
-                    <p class="currentscore">${currentScore || '0 - 0'}</p> <!-- Exibe o score atual -->
+                    <p>${gameDate}</p>
+                    <p class="currentscore">${currentScore}</p>
                 </div>
                 <div class="col-12 col-md-4 g-0 cell">
-                    <h2 class="">Visitante</h2>
+                    <h2>Visitante</h2>
                     <div class="gridscore">
-                        <img src="${awayTeamLogo || 'default-team-logo.png'}" class="img-fluid" style="height: 50px;" alt="Escudo do time visitante">
-                        <h3 class="">${awayTeamName || 'Visitante'}</h3>
-                        
+                        <img src="${awayTeamLogo}" class="img-fluid" style="height: 50px;" alt="Escudo do time visitante">
+                        <h3>${awayTeamName}</h3>
                     </div>
                 </div>
                     <div class="sticker  g-0">
@@ -73,9 +73,39 @@ async function fetchTeamStatistics() {
                 <a href="https://wa.me/5531987670611" target="_blank">WhatsApp</a>
                 <a href="mailto:lshv04@gmail.com" target="_blank">Email</a>
             </div>
+                
+            `;
+
+            const gameHTMLMobile = `
+                <div class="col-12 cardmobile">
+                    <p class="datemobile">${gameDate}</p>
+                    <div class="painelmobile">
+                        <div>
+                            <p class="text-center">L</p>
+                            <img src="${leagueLogo}" alt="Imagem da liga">
+                        </div>
+                        <div>
+                            <p class="text-center">M</p>
+                            <img src="${homeTeamLogo}" alt="Escudo mandante">
+                        </div>
+                        <p class="scoremobile">${currentScore}</p>
+                        <div>
+                            <p class="text-center">v</p>
+                            <img src="${awayTeamLogo}" alt="Escudo visitante">
+                        </div>
+                    </div>
+                </div>
+                <div class="sticker g-0 stickermobile">
+                    <a href="https://www.linkedin.com/in/leandrohosken/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://lshv04.github.io/CV/" target="_blank"><i class="bi bi-file-earmark-person"></i></a>
+                    <a href="https://github.com/lshv04" target="_blank"><i class="bi bi-github"></i></a>
+                    <a href="https://wa.me/5531987670611" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    <a href="mailto:lshv04@gmail.com" target="_blank"><i class="bi bi-envelope"></i></a>
+                </div>
             `;
 
             container.innerHTML += gameHTML;
+            containerMobile.innerHTML += gameHTMLMobile;
         });
 
     } catch (error) {
