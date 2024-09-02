@@ -1,5 +1,4 @@
 async function fetchTeamStatistics() {
-    const urlStats = 'https://football-highlights-api.p.rapidapi.com/teams/statistics/115669?timezone=America%2FSao_Paulo&fromDate=2024-01-01';
     const urlLastFiveGames = 'https://football-highlights-api.p.rapidapi.com/last-five-games?teamId=115669'; // ID atualizado para o Cruzeiro
 
     const options = {
@@ -11,14 +10,6 @@ async function fetchTeamStatistics() {
     };
 
     try {
-        // Fetch para estatísticas do time
-        const responseStats = await fetch(urlStats, options);
-        if (!responseStats.ok) {
-            throw new Error(`HTTP error! Status: ${responseStats.status}`);
-        }
-        const dataStats = await responseStats.json();
-        console.log('Team Statistics:', dataStats);
-
         // Fetch para últimos cinco jogos
         const responseLastFiveGames = await fetch(urlLastFiveGames, options);
         if (!responseLastFiveGames.ok) {
@@ -66,14 +57,13 @@ async function fetchTeamStatistics() {
                         <h3>${awayTeamName}</h3>
                     </div>
                 </div>
-                    <div class="sticker  g-0">
-                <a href="https://www.linkedin.com/in/leandrohosken/" target="_blank">LinkedIn</a>
-                <a href="https://lshv04.github.io/CV/" target="_blank">CV</a>
-                <a href="https://github.com/lshv04" target="_blank">Github</a>
-                <a href="https://wa.me/5531987670611" target="_blank">WhatsApp</a>
-                <a href="mailto:lshv04@gmail.com" target="_blank">Email</a>
-            </div>
-                
+                <div class="sticker g-0">
+                    <a href="https://www.linkedin.com/in/leandrohosken/" target="_blank">LinkedIn</a>
+                    <a href="https://lshv04.github.io/CV/" target="_blank">CV</a>
+                    <a href="https://github.com/lshv04" target="_blank">Github</a>
+                    <a href="https://wa.me/5531987670611" target="_blank">WhatsApp</a>
+                    <a href="mailto:lshv04@gmail.com" target="_blank">Email</a>
+                </div>
             `;
 
             const gameHTMLMobile = `
@@ -113,5 +103,5 @@ async function fetchTeamStatistics() {
     }
 }
 
-// Chama a função para buscar as estatísticas e últimos cinco jogos
+// Chama a função para buscar os últimos cinco jogos
 fetchTeamStatistics();
