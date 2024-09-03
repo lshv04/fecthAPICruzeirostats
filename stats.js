@@ -1,132 +1,116 @@
 async function fetchTeamStats() {
-  const url =
-    "https://sport-highlights-api.p.rapidapi.com/football/teams/statistics/115669?fromDate=2024-01-01&timezone=America%2FSao_Paulo"; // ID do Cruzeiro e data ajustada
-  const options = {
-    method: "GET",
-    headers: {
-      "x-rapidapi-key": "854d52dfc6mshd9f4f8c27dcbbe9p18486fjsn64fe1a60f11d",
-      "x-rapidapi-host": "sport-highlights-api.p.rapidapi.com",
-    },
-  };
+    const url = 'https://sport-highlights-api.p.rapidapi.com/football/teams/statistics/115669?fromDate=2024-01-01&timezone=America%2FSao_Paulo';
+    const options = {
+        method: 'GET',
+        headers: {
+            'x-rapidapi-key': '854d52dfc6mshd9f4f8c27dcbbe9p18486fjsn64fe1a60f11d',
+            'x-rapidapi-host': 'sport-highlights-api.p.rapidapi.com'
+        }
+    };
 
-  try {
-    const response = await fetch(url, options);
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+    try {
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const dataStats = await response.json();
+        
+        // Log dos dados da API
+        console.log('Dados da API:', dataStats);
+
+        const firstItem = dataStats[0]; // Acessa o primeiro item do array
+
+        // Log do primeiro item
+        console.log('Primeiro item:', firstItem);
+
+        // Dados que serão usados para criar o HTML
+        const totalWins = firstItem.total.games.wins;
+        const totalLosses = firstItem.total.games.loses;
+        const totalDraws = firstItem.total.games.draws;
+        const totalGoalsScored = firstItem.total.goals.scored;
+        const totalGoalsReceived = firstItem.total.goals.received; // Corrigido para "received"
+        
+        const homeWins = firstItem.home.games.wins;
+        const homeLosses = firstItem.home.games.loses;
+        const homeDraws = firstItem.home.games.draws;
+        const homeGoalsScored = firstItem.home.goals.scored;
+        const homeGoalsReceived = firstItem.home.goals.received; // Corrigido para "received"
+        
+        const awayWins = firstItem.away.games.wins;
+        const awayLosses = firstItem.away.games.loses;
+        const awayDraws = firstItem.away.games.draws;
+        const awayGoalsScored = firstItem.away.goals.scored;
+        const awayGoalsReceived = firstItem.away.goals.received; // Corrigido para "received"
+
+        // Log dos dados usados para criar o HTML
+        console.log('Total Wins:', totalWins);
+        console.log('Total Losses:', totalLosses);
+        console.log('Total Draws:', totalDraws);
+        console.log('Total Goals Scored:', totalGoalsScored);
+        console.log('Total Goals Received:', totalGoalsReceived);
+        
+        console.log('Home Wins:', homeWins);
+        console.log('Home Losses:', homeLosses);
+        console.log('Home Draws:', homeDraws);
+        console.log('Home Goals Scored:', homeGoalsScored);
+        console.log('Home Goals Received:', homeGoalsReceived);
+        
+        console.log('Away Wins:', awayWins);
+        console.log('Away Losses:', awayLosses);
+        console.log('Away Draws:', awayDraws);
+        console.log('Away Goals Scored:', awayGoalsScored);
+        console.log('Away Goals Received:', awayGoalsReceived);
+
+        // Cria o HTML como uma string
+        const htmlContent = `
+            <ul>
+                <li><h2 class="total">Stats Total</h2></li>
+                <li><p>Vitória: ${totalWins}</p></li>
+                <li><p>Derrota: ${totalLosses}</p></li>
+                <li><p>Empate: ${totalDraws}</p></li>
+                <li><h3>Total: ${totalWins + totalLosses + totalDraws}</h3></li>
+            </ul>
+            <ul>
+                <li><h2 class="h2gol">Gols</h2></li>
+                <li><p>Gols Pró: ${totalGoalsScored}</p></li>
+                <li><p>Gols Contra: ${totalGoalsReceived}</p></li>
+                <li><h3>Total: ${totalGoalsScored + totalGoalsReceived}</h3></li>
+            </ul>
+            <ul>
+                <li><h2 class="total">Stats Mandante</h2></li>
+                <li><p>Vitória: ${homeWins}</p></li>
+                <li><p>Derrota: ${homeLosses}</p></li>
+                <li><p>Empate: ${homeDraws}</p></li>
+                <li><h3>Total: ${homeWins + homeLosses + homeDraws}</h3></li>
+            </ul>
+            <ul>
+                <li><h2 class="h2gol">Gols</h2></li>
+                <li><p>Gols Pró: ${homeGoalsScored}</p></li>
+                <li><p>Gols Contra: ${homeGoalsReceived}</p></li>
+                <li><h3>Total: ${homeGoalsScored + homeGoalsReceived}</h3></li>
+            </ul>
+            <ul>
+                <li><h2 class="total">Stats Visitante</h2></li>
+                <li><p>Vitória: ${awayWins}</p></li>
+                <li><p>Derrota: ${awayLosses}</p></li>
+                <li><p>Empate: ${awayDraws}</p></li>
+                <li><h3>Total: ${awayWins + awayLosses + awayDraws}</h3></li>
+            </ul>
+            <ul>
+                <li><h2 class="h2gol">Gols</h2></li>
+                <li><p>Gols Pró: ${awayGoalsScored}</p></li>
+                <li><p>Gols Contra: ${awayGoalsReceived}</p></li>
+                <li><h3>Total: ${awayGoalsScored + awayGoalsReceived}</h3></li>
+            </ul>
+        `;
+
+        // Atualiza o conteúdo do contêiner com o HTML gerado
+        document.getElementById('stats-container').innerHTML = htmlContent;
+        
+    } catch (error) {
+        console.error('Error:', error);
     }
-    const dataStats = await response.json(); // Convertendo o resultado para JSON
-    console.log("Stats:", dataStats); // Logando o objeto com o nome "Stats"
-
-    const firstItem = dataStats[0];
-    
-// stats total
-
-    document.getElementById(
-      "total-wins-seriea"
-    ).textContent = `Vitória: ${firstItem.total.games.wins}`;
-    document.getElementById(
-      "total-loss-seriea"
-    ).textContent = `Derrota: ${firstItem.total.games.loses}`;
-    document.getElementById(
-      "total-draw-seriea"
-    ).textContent = `Empate: ${firstItem.total.games.draws}`;
-    // Calcula o total e atualiza o HTML
-    const totalseriea =
-      firstItem.total.games.wins +
-      firstItem.total.games.loses +
-      firstItem.total.games.draws;
-    document.getElementById("total-Seriea").textContent = `Total: ${totalseriea}`;
-
-
-    document.getElementById(
-        "total-golpro-seriea"
-      ).textContent = `Gol pró: ${firstItem.total.goals.scored}`;
-      document.getElementById(
-        "total-golcontra-seriea"
-      ).textContent = `Gol contra: ${firstItem.total.goals.received}`;
-
-    
-      // Calcula o total e atualiza o HTML
-      const totalgolseriea  =
-      firstItem.total.goals.scored +
-      firstItem.total.goals.received;
-       
-      document.getElementById("total-gols-Seriea").textContent = `Total: ${totalgolseriea}`;
-
-
-
-// stats mandante
-
-document.getElementById(
-    "total-wins-home-seriea"
-  ).textContent = `Vitória: ${firstItem.home.games.wins}`;
-  document.getElementById(
-    "total-loses-home-seriea"
-  ).textContent = `Derrota: ${firstItem.home.games.loses}`;
-  document.getElementById(
-    "total-draw-home-seriea"
-  ).textContent = `Empate: ${firstItem.home.games.draws}`;
-  // Calcula o total e atualiza o HTML
-  const totalhomeseriea =
-  firstItem.home.games.wins +
-  firstItem.home.games.loses +
-  firstItem.home.games.draws;
-  document.getElementById("total-home-Seriea").textContent = `Total: ${totalhomeseriea}`;
-
-
-  document.getElementById(
-      "total-golpro-home-seriea"
-    ).textContent = `Gol pró: ${firstItem.home.goals.scored}`;
-    document.getElementById(
-      "total-golcontra-home-seriea"
-    ).textContent = `Gol contra: ${firstItem.home.goals.received}`;
-
-  
-    // Calcula o total e atualiza o HTML
-    const totalgolhomeseriea  =
-    firstItem.home.goals.scored +
-    firstItem.home.goals.received;
-     
-    document.getElementById("total-gols-home-Seriea").textContent = `Total: ${totalgolhomeseriea}`;
-
-// stats visitante
-
-document.getElementById(
-    "total-wins-away-seriea"
-  ).textContent = `Vitória: ${firstItem.away.games.wins}`;
-  document.getElementById(
-    "total-loses-away-seriea"
-  ).textContent = `Derrota: ${firstItem.away.games.loses}`;
-  document.getElementById(
-    "total-draw-away-seriea"
-  ).textContent = `Empate: ${firstItem.away.games.draws}`;
-  // Calcula o total e atualiza o HTML
-  const totalawayseriea =
-  firstItem.away.games.wins +
-  firstItem.away.games.loses +
-  firstItem.away.games.draws;
-  document.getElementById("total-away-Seriea").textContent = `Total: ${totalawayseriea}`;
-
-
-  document.getElementById(
-      "total-golpro-away-seriea"
-    ).textContent = `Gol pró: ${firstItem.away.goals.scored}`;
-    document.getElementById(
-      "total-golcontra-away-seriea"
-    ).textContent = `Gol contra: ${firstItem.away.goals.received}`;
-
-  
-    // Calcula o total e atualiza o HTML
-    const totalgolawayseriea  =
-    firstItem.away.goals.scored +
-    firstItem.away.goals.received;
-     
-    document.getElementById("total-gols-away-Seriea").textContent = `Total: ${totalgolawayseriea}`;
-
-  } catch (error) {
-    console.error("Error:", error);
-  }
 }
 
-// Chama a função para executar o fetch
+// Chama a função para executar o fetch e atualizar o HTML
 fetchTeamStats();
