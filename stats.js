@@ -18,99 +18,144 @@ async function fetchTeamStats() {
         // Log dos dados da API
         console.log('Dados da API:', dataStats);
 
-        const firstItem = dataStats[0]; // Acessa o primeiro item do array
-
-        // Log do primeiro item
+        // Processamento para o primeiro item
+        const firstItem = dataStats[0];
         console.log('Primeiro item:', firstItem);
 
-        // Dados que serão usados para criar o HTML
-        const totalWins = firstItem.total.games.wins;
-        const totalLosses = firstItem.total.games.loses;
-        const totalDraws = firstItem.total.games.draws;
-        const totalGoalsScored = firstItem.total.goals.scored;
-        const totalGoalsReceived = firstItem.total.goals.received; // Corrigido para "received"
+        const totalWins1 = firstItem.total.games.wins;
+        const totalLosses1 = firstItem.total.games.loses;
+        const totalDraws1 = firstItem.total.games.draws;
+        const totalGoalsScored1 = firstItem.total.goals.scored;
+        const totalGoalsReceived1 = firstItem.total.goals.received;
         
-        const homeWins = firstItem.home.games.wins;
-        const homeLosses = firstItem.home.games.loses;
-        const homeDraws = firstItem.home.games.draws;
-        const homeGoalsScored = firstItem.home.goals.scored;
-        const homeGoalsReceived = firstItem.home.goals.received; // Corrigido para "received"
+        const homeWins1 = firstItem.home.games.wins;
+        const homeLosses1 = firstItem.home.games.loses;
+        const homeDraws1 = firstItem.home.games.draws;
+        const homeGoalsScored1 = firstItem.home.goals.scored;
+        const homeGoalsReceived1 = firstItem.home.goals.received;
         
-        const awayWins = firstItem.away.games.wins;
-        const awayLosses = firstItem.away.games.loses;
-        const awayDraws = firstItem.away.games.draws;
-        const awayGoalsScored = firstItem.away.goals.scored;
-        const awayGoalsReceived = firstItem.away.goals.received; // Corrigido para "received"
+        const awayWins1 = firstItem.away.games.wins;
+        const awayLosses1 = firstItem.away.games.loses;
+        const awayDraws1 = firstItem.away.games.draws;
+        const awayGoalsScored1 = firstItem.away.goals.scored;
+        const awayGoalsReceived1 = firstItem.away.goals.received;
 
-        // Log dos dados usados para criar o HTML
-        console.log('Total Wins:', totalWins);
-        console.log('Total Losses:', totalLosses);
-        console.log('Total Draws:', totalDraws);
-        console.log('Total Goals Scored:', totalGoalsScored);
-        console.log('Total Goals Received:', totalGoalsReceived);
-        
-        console.log('Home Wins:', homeWins);
-        console.log('Home Losses:', homeLosses);
-        console.log('Home Draws:', homeDraws);
-        console.log('Home Goals Scored:', homeGoalsScored);
-        console.log('Home Goals Received:', homeGoalsReceived);
-        
-        console.log('Away Wins:', awayWins);
-        console.log('Away Losses:', awayLosses);
-        console.log('Away Draws:', awayDraws);
-        console.log('Away Goals Scored:', awayGoalsScored);
-        console.log('Away Goals Received:', awayGoalsReceived);
-
-        // Cria o HTML como uma string
-        const htmlContent = `
+        // HTML para o primeiro item
+        const htmlContent1 = `
             <ul>
                 <li><h2 class="total">Stats Total</h2></li>
-                <li><p>Vitória: ${totalWins}</p></li>
-                <li><p>Derrota: ${totalLosses}</p></li>
-                <li><p>Empate: ${totalDraws}</p></li>
-                <li><h3>Total: ${totalWins + totalLosses + totalDraws}</h3></li>
+                <li><p>Vitória: ${totalWins1}</p></li>
+                <li><p>Derrota: ${totalLosses1}</p></li>
+                <li><p>Empate: ${totalDraws1}</p></li>
+                <li><h3>Total: ${totalWins1 + totalLosses1 + totalDraws1}</h3></li>
             </ul>
             <ul>
                 <li><h2 class="h2gol">Gols</h2></li>
-                <li><p>Gols Pró: ${totalGoalsScored}</p></li>
-                <li><p>Gols Contra: ${totalGoalsReceived}</p></li>
-                <li><h3>Total: ${totalGoalsScored + totalGoalsReceived}</h3></li>
+                <li><p>Gols Pró: ${totalGoalsScored1}</p></li>
+                <li><p>Gols Contra: ${totalGoalsReceived1}</p></li>
+                <li><h3>Total: ${totalGoalsScored1 + totalGoalsReceived1}</h3></li>
             </ul>
             <ul>
                 <li><h2 class="total">Stats Mandante</h2></li>
-                <li><p>Vitória: ${homeWins}</p></li>
-                <li><p>Derrota: ${homeLosses}</p></li>
-                <li><p>Empate: ${homeDraws}</p></li>
-                <li><h3>Total: ${homeWins + homeLosses + homeDraws}</h3></li>
+                <li><p>Vitória: ${homeWins1}</p></li>
+                <li><p>Derrota: ${homeLosses1}</p></li>
+                <li><p>Empate: ${homeDraws1}</p></li>
+                <li><h3>Total: ${homeWins1 + homeLosses1 + homeDraws1}</h3></li>
             </ul>
             <ul>
                 <li><h2 class="h2gol">Gols</h2></li>
-                <li><p>Gols Pró: ${homeGoalsScored}</p></li>
-                <li><p>Gols Contra: ${homeGoalsReceived}</p></li>
-                <li><h3>Total: ${homeGoalsScored + homeGoalsReceived}</h3></li>
+                <li><p>Gols Pró: ${homeGoalsScored1}</p></li>
+                <li><p>Gols Contra: ${homeGoalsReceived1}</p></li>
+                <li><h3>Total: ${homeGoalsScored1 + homeGoalsReceived1}</h3></li>
             </ul>
             <ul>
                 <li><h2 class="total">Stats Visitante</h2></li>
-                <li><p>Vitória: ${awayWins}</p></li>
-                <li><p>Derrota: ${awayLosses}</p></li>
-                <li><p>Empate: ${awayDraws}</p></li>
-                <li><h3>Total: ${awayWins + awayLosses + awayDraws}</h3></li>
+                <li><p>Vitória: ${awayWins1}</p></li>
+                <li><p>Derrota: ${awayLosses1}</p></li>
+                <li><p>Empate: ${awayDraws1}</p></li>
+                <li><h3>Total: ${awayWins1 + awayLosses1 + awayDraws1}</h3></li>
             </ul>
             <ul>
                 <li><h2 class="h2gol">Gols</h2></li>
-                <li><p>Gols Pró: ${awayGoalsScored}</p></li>
-                <li><p>Gols Contra: ${awayGoalsReceived}</p></li>
-                <li><h3>Total: ${awayGoalsScored + awayGoalsReceived}</h3></li>
+                <li><p>Gols Pró: ${awayGoalsScored1}</p></li>
+                <li><p>Gols Contra: ${awayGoalsReceived1}</p></li>
+                <li><h3>Total: ${awayGoalsScored1 + awayGoalsReceived1}</h3></li>
             </ul>
         `;
 
-        // Atualiza o conteúdo do contêiner com o HTML gerado
-        document.getElementById('stats-container').innerHTML = htmlContent;
+        // Cria o HTML para o segundo item
+        const secondItem = dataStats[1];
+        console.log('Segundo item:', secondItem);
+
+        const totalWins2 = secondItem.total.games.wins;
+        const totalLosses2 = secondItem.total.games.loses;
+        const totalDraws2 = secondItem.total.games.draws;
+        const totalGoalsScored2 = secondItem.total.goals.scored;
+        const totalGoalsReceived2 = secondItem.total.goals.received;
         
+        const homeWins2 = secondItem.home.games.wins;
+        const homeLosses2 = secondItem.home.games.loses;
+        const homeDraws2 = secondItem.home.games.draws;
+        const homeGoalsScored2 = secondItem.home.goals.scored;
+        const homeGoalsReceived2 = secondItem.home.goals.received;
+        
+        const awayWins2 = secondItem.away.games.wins;
+        const awayLosses2 = secondItem.away.games.loses;
+        const awayDraws2 = secondItem.away.games.draws;
+        const awayGoalsScored2 = secondItem.away.goals.scored;
+        const awayGoalsReceived2 = secondItem.away.goals.received;
+
+        // HTML para o segundo item
+        const htmlContent2 = `
+            <ul>
+                <li><h2 class="total">Stats Total</h2></li>
+                <li><p>Vitória: ${totalWins2}</p></li>
+                <li><p>Derrota: ${totalLosses2}</p></li>
+                <li><p>Empate: ${totalDraws2}</p></li>
+                <li><h3>Total: ${totalWins2 + totalLosses2 + totalDraws2}</h3></li>
+            </ul>
+            <ul>
+                <li><h2 class="h2gol">Gols</h2></li>
+                <li><p>Gols Pró: ${totalGoalsScored2}</p></li>
+                <li><p>Gols Contra: ${totalGoalsReceived2}</p></li>
+                <li><h3>Total: ${totalGoalsScored2 + totalGoalsReceived2}</h3></li>
+            </ul>
+            <ul>
+                <li><h2 class="total">Stats Mandante</h2></li>
+                <li><p>Vitória: ${homeWins2}</p></li>
+                <li><p>Derrota: ${homeLosses2}</p></li>
+                <li><p>Empate: ${homeDraws2}</p></li>
+                <li><h3>Total: ${homeWins2 + homeLosses2 + homeDraws2}</h3></li>
+            </ul>
+            <ul>
+                <li><h2 class="h2gol">Gols</h2></li>
+                <li><p>Gols Pró: ${homeGoalsScored2}</p></li>
+                <li><p>Gols Contra: ${homeGoalsReceived2}</p></li>
+                <li><h3>Total: ${homeGoalsScored2 + homeGoalsReceived2}</h3></li>
+            </ul>
+            <ul>
+                <li><h2 class="total">Stats Visitante</h2></li>
+                <li><p>Vitória: ${awayWins2}</p></li>
+                <li><p>Derrota: ${awayLosses2}</p></li>
+                <li><p>Empate: ${awayDraws2}</p></li>
+                <li><h3>Total: ${awayWins2 + awayLosses2 + awayDraws2}</h3></li>
+            </ul>
+            <ul>
+                <li><h2 class="h2gol">Gols</h2></li>
+                <li><p>Gols Pró: ${awayGoalsScored2}</p></li>
+                <li><p>Gols Contra: ${awayGoalsReceived2}</p></li>
+                <li><h3>Total: ${awayGoalsScored2 + awayGoalsReceived2}</h3></li>
+            </ul>
+        `;
+
+        // Atualiza o conteúdo do contêiner com os HTMLs gerados
+        document.getElementById('stats-container-1').innerHTML = htmlContent1;
+        document.getElementById('stats-container-2').innerHTML = htmlContent2;
+
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Erro ao buscar os dados:', error);
     }
 }
 
-// Chama a função para executar o fetch e atualizar o HTML
+// Chama a função para buscar os dados e atualizar o HTML
 fetchTeamStats();

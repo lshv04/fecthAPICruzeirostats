@@ -8,18 +8,23 @@
     --color-2:#fff;
     --color-3:#f3ae2a;
     --color-4:#000354;
+    --color-5:#004687;
    
 
 }
 body{
     margin: 0;
     padding:0;
+    background-color: #fff;
    
 }
-
+.navbar{
+    background-color: var(--color-4) !important;
+}
 .bord{
     border: 1px solid black;
 }
+
 
 
 .league{
@@ -39,10 +44,16 @@ body{
  
   
 }
+h1{
+    color: var(--color-2);
+}
 h2{
     text-align: center;
     
     color:var(--color-2);
+}
+#game-container{
+    margin-top: 6rem;
 }
 .total{
     text-align: center;
@@ -115,6 +126,7 @@ h2{
 }
 #game-container-mobile{
     margin-bottom: 1rem;
+    margin-top: 6rem;
 }
 
 .offcanvas-body{
@@ -138,6 +150,9 @@ li{
     }
     .sticker{
         gap:2rem;
+    }
+    h1{
+       font-size: 1.25rem;
     }
   }
   
