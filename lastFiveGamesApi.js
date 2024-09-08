@@ -1,41 +1,48 @@
+
+
+
 async function fetchTeamStatistics() {
-    const urlLastFiveGames = 'https://football-highlights-api.p.rapidapi.com/last-five-games?teamId=115669'; // ID atualizado para o Cruzeiro
+  const urlLastFiveGames =
+    "https://football-highlights-api.p.rapidapi.com/last-five-games?teamId=115669"; // ID atualizado para o Cruzeiro
 
-    const options = {
-        method: 'GET',
-        headers: {
-            'x-rapidapi-key': '854d52dfc6mshd9f4f8c27dcbbe9p18486fjsn64fe1a60f11d',
-            'x-rapidapi-host': 'football-highlights-api.p.rapidapi.com'
-        }
-    };
+  const options = {
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "854d52dfc6mshd9f4f8c27dcbbe9p18486fjsn64fe1a60f11d",
+      "x-rapidapi-host": "football-highlights-api.p.rapidapi.com",
+    },
+  };
 
-    try {
-        // Fetch para últimos cinco jogos
-        const responseLastFiveGames = await fetch(urlLastFiveGames, options);
-        if (!responseLastFiveGames.ok) {
-            throw new Error(`HTTP error! Status: ${responseLastFiveGames.status}`);
-        }
-        const dataLastFiveGames = await responseLastFiveGames.json();
-        console.log('Last Five Games:', dataLastFiveGames);
+  try {
+    // Fetch para últimos cinco jogos
+    const responseLastFiveGames = await fetch(urlLastFiveGames, options);
+    if (!responseLastFiveGames.ok) {
+      throw new Error(`HTTP error! Status: ${responseLastFiveGames.status}`);
+    }
+    const dataLastFiveGames = await responseLastFiveGames.json();
+    console.log("Last Five Games:", dataLastFiveGames);
 
-        // Adiciona o HTML ao container
-        const container = document.querySelector("#game-container");
-        const containerMobile = document.querySelector("#game-container-mobile");
+    // Adiciona o HTML ao container
+    const container = document.querySelector("#game-container");
+    const containerMobile = document.querySelector("#game-container-mobile");
 
-        container.innerHTML = '';
-        containerMobile.innerHTML = '';
+    container.innerHTML = "";
+    containerMobile.innerHTML = "";
 
-        // Gera o HTML para cada jogo
-        dataLastFiveGames.forEach((game) => {
-            const homeTeamName = game.homeTeam.name || 'Mandante';
-            const awayTeamName = game.awayTeam.name || 'Visitante';
-            const leagueLogo = game.league.logo || 'default-league-logo.png';
-            const gameDate = new Date(game.date).toLocaleDateString() || 'Data';
-            const currentScore = game.state.score.current || '0 - 0';
-            const homeTeamLogo = game.homeTeam.logo || 'default-team-logo.png';
-            const awayTeamLogo = game.awayTeam.logo || 'default-team-logo.png';
+    // Gera o HTML para cada jogo
+    dataLastFiveGames.forEach((game) => {
+        const matchid = game.id;
+      
+      const homeTeamName = game.homeTeam.name || "Mandante";
+      const awayTeamName = game.awayTeam.name || "Visitante";
+      const leagueLogo = game.league.logo || "default-league-logo.png";
+      const gameDate = new Date(game.date).toLocaleDateString() || "Data";
+      const currentScore = game.state.score.current || "0 - 0";
+      const homeTeamLogo = game.homeTeam.logo || "default-team-logo.png";
+      const awayTeamLogo = game.awayTeam.logo || "default-team-logo.png";
 
-            const gameHTML = `
+      const gameHTML = `
+                <p>${matchid}</p>
                 <div class="col-12 league g-0 cell">
                     <img src="${leagueLogo}" class="img-fluid" alt="Imagem oficial da liga">
                 </div>
@@ -49,6 +56,9 @@ async function fetchTeamStatistics() {
                 <div class="col-12 col-md-4 score g-0 cell">
                     <p>${gameDate}</p>
                     <p class="currentscore">${currentScore}</p>
+                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#${matchid}">
+    Game stats
+  </button>
                 </div>
                 <div class="col-12 col-md-4 g-0 cell">
                     <h2>Visitante</h2>
@@ -66,7 +76,7 @@ async function fetchTeamStatistics() {
                 </div>
             `;
 
-            const gameHTMLMobile = `
+      const gameHTMLMobile = `
                 <div class="col-12 cardmobile">
                     <p class="datemobile">${gameDate}</p>
                     <div class="painelmobile">
@@ -78,12 +88,14 @@ async function fetchTeamStatistics() {
                             <p class="text-center">M</p>
                             <img src="${homeTeamLogo}" alt="Escudo mandante">
                         </div>
+  
                         <p class="scoremobile">${currentScore}</p>
                         <div>
                             <p class="text-center">v</p>
                             <img src="${awayTeamLogo}" alt="Escudo visitante">
                         </div>
                     </div>
+     
                 </div>
                 <div class="sticker g-0 stickermobile">
                     <a href="https://www.linkedin.com/in/leandrohosken/" target="_blank"><i class="bi bi-linkedin"></i></a>
@@ -94,14 +106,15 @@ async function fetchTeamStatistics() {
                 </div>
             `;
 
-            container.innerHTML += gameHTML;
-            containerMobile.innerHTML += gameHTMLMobile;
-        });
-
-    } catch (error) {
-        console.error('Error:', error);
-    }
+      container.innerHTML += gameHTML;
+      containerMobile.innerHTML += gameHTMLMobile;
+    });
+    
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }
 
 // Chama a função para buscar os últimos cinco jogos
 fetchTeamStatistics();
+;

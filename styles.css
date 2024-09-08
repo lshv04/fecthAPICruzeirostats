@@ -12,6 +12,7 @@
    
 
 }
+
 body{
     margin: 0;
     padding:0;
@@ -140,6 +141,26 @@ li{
 ul{
     padding:0;
 }
+
+.h1teste{
+    color:black;
+}
+.gamestatsmodal{
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   
+}
+.gamestatsmodalitens {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap:2rem;
+
+}
+
 @media (max-width: 767px) {
   
     #game-container{
