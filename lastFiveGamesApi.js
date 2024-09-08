@@ -42,7 +42,7 @@ async function fetchTeamStatistics() {
       const awayTeamLogo = game.awayTeam.logo || "default-team-logo.png";
 
       const gameHTML = `
-                <p>${matchid}</p>
+                
                 <div class="col-12 league g-0 cell">
                     <img src="${leagueLogo}" class="img-fluid" alt="Imagem oficial da liga">
                 </div>
@@ -56,7 +56,7 @@ async function fetchTeamStatistics() {
                 <div class="col-12 col-md-4 score g-0 cell">
                     <p>${gameDate}</p>
                     <p class="currentscore">${currentScore}</p>
-                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#${matchid}">
+                    <button type="button" class="btn btn-primary gamestats" data-bs-toggle="modal" data-bs-target="#${matchid}">
     Game stats
   </button>
                 </div>
@@ -97,6 +97,9 @@ async function fetchTeamStatistics() {
                     </div>
      
                 </div>
+                                  <button type="button" class="btn btn-primary gamestats" data-bs-toggle="modal" data-bs-target="#${matchid}">
+    Game stats
+  </button>
                 <div class="sticker g-0 stickermobile">
                     <a href="https://www.linkedin.com/in/leandrohosken/" target="_blank"><i class="bi bi-linkedin"></i></a>
                     <a href="https://lshv04.github.io/CV/" target="_blank"><i class="bi bi-file-earmark-person"></i></a>

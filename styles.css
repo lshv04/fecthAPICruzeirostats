@@ -53,6 +53,9 @@ h2{
     
     color:var(--color-2);
 }
+h3{
+    text-align: center;
+}
 #game-container{
     margin-top: 6rem;
 }
@@ -159,6 +162,23 @@ ul{
    align-items: center;
    gap:2rem;
 
+}
+
+footer{
+    background-color: var(--color-1);
+    
+    
+padding:3rem;
+}
+p{
+    color: var(--color-2);
+}
+.foot{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
 }
 
 @media (max-width: 767px) {
