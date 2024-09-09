@@ -1,210 +1,221 @@
 @import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap');
 
-*{
+* {
     font-family: "Tektur", sans-serif;
 }
-:root{
-    --color-1:#002a86;
-    --color-2:#fff;
-    --color-3:#f3ae2a;
-    --color-4:#000354;
-    --color-5:#004687;
-   
 
+:root {
+    --color-1: #002a86;
+    --color-2: #fff;
+    --color-3: #f3ae2a;
+    --color-4: #000354;
+    --color-5: #004687;
 }
 
-body{
+body,
+html {
     margin: 0;
-    padding:0;
+    padding: 0;
     background-color: #fff;
-   
 }
-.navbar{
+
+.navbar {
     background-color: var(--color-4) !important;
 }
-.bord{
+
+.bord {
     border: 1px solid black;
 }
 
-
-
-.league{
+.league {
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    
 }
-.gridscore{
+
+.gridscore {
     display: flex;
     align-items: center;
-    justify-content:center;
-    gap:1rem;
-    
-    color:var(--color-2);
- 
-  
-}
-h1{
+    justify-content: center;
+    gap: 1rem;
     color: var(--color-2);
 }
-h2{
-    text-align: center;
-    
-    color:var(--color-2);
+
+h1 {
+    color: var(--color-2);
 }
-h3{
+
+h2 {
+    text-align: center;
+    color: var(--color-2);
+}
+
+h3 {
     text-align: center;
 }
-#game-container{
+
+#game-container {
     margin-top: 6rem;
 }
-.total{
+
+.total {
     text-align: center;
     background-color: var(--color-1);
-    color:var(--color-2);
+    color: var(--color-2);
 }
-.h2gol{
+
+.h2gol {
     background-color: var(--color-2);
-    color:var(--color-1);
+    color: var(--color-1);
     text-align: start;
 }
-.score{
+
+.score {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background-color: var(--color-1);
-    color:var(--color-2);
+    color: var(--color-2);
 }
-.currentscore{
+
+.currentscore {
     font-size: 3rem;
 }
-.cell{
+
+.cell {
     background-color: var(--color-1);
     padding: 1rem;
     background-image: url("https://www.cruzeiro.com.br/static/media/bg-cru.73d26b4613b8ac5c2cbc.jpg");
-}   
+}
 
-.sticker{
+.sticker {
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
     background-color: var(--color-3);
     display: flex;
     justify-content: center;
-    gap:1.5rem;
+    gap: 1.5rem;
     margin-bottom: 1.5rem;
-    
-
 }
-.sticker a{
-    color:var(--color-4);
+
+.sticker a {
+    color: var(--color-4);
     text-decoration: none;
 }
-.sticker a:hover{
+
+.sticker a:hover {
     filter: brightness(2);
 }
 
 
-.cardmobile{
+.cardmobile {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-image: url("https://www.cruzeiro.com.br/static/media/bg-cru.73d26b4613b8ac5c2cbc.jpg");
-    color:var(--color-2);
-    padding:0.5rem;
+    color: var(--color-2);
+    padding: 0.5rem;
 }
-.painelmobile{
+
+.painelmobile {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items:flex-end;
-    gap:0.2rem;
+    align-items: flex-end;
+    gap: 0.2rem;
     width: 100%;
-   
 }
-.scoremobile{
+
+.scoremobile {
     margin: 0;
     font-size: 3rem;
 }
-#game-container-mobile{
+
+#game-container-mobile {
     margin-bottom: 1rem;
     margin-top: 6rem;
 }
 
-.offcanvas-body{
+.offcanvas-body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
-li{
+
+li {
     list-style: none;
 }
-ul{
-    padding:0;
+
+ul {
+    padding: 0;
 }
 
-.h1teste{
-    color:black;
+.h1teste {
+    color: black;
 }
-.gamestatsmodal{
-   
+
+.gamestatsmodal {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-   
 }
+
 .gamestatsmodalitens {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   gap:2rem;
-
-}
-
-footer{
-    background-color: var(--color-1);
-    
-    
-padding:3rem;
-}
-p{
-    color: var(--color-2);
-}
-.foot{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
+    gap: 2rem;
+
+}
+
+footer {
+    background-color: var(--color-1);
+    padding: 3rem;
+}
+
+.textfooter {
+    color: var(--color-2);
+}
+
+.foot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 767px) {
-  
-    #game-container{
+
+    #game-container {
         display: none;
     }
-    img{
+
+    img {
         height: 70px;
     }
-    .sticker a{
-       font-size: 1.5rem;
+
+    .sticker a {
+        font-size: 1.5rem;
     }
-    .sticker{
-        gap:2rem;
+
+    .sticker {
+        gap: 2rem;
     }
-    h1{
-       font-size: 1.25rem;
+
+    h1 {
+        font-size: 1.25rem;
     }
-  }
-  
-  @media (min-width: 768px) {
-  
-  
-    #game-container-mobile{
+    .gamestats{
+        border-radius: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    #game-container-mobile {
         display: none;
     }
-   
-  }
+
+}

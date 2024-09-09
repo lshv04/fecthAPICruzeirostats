@@ -1,6 +1,3 @@
-
-
-
 async function fetchTeamStatistics() {
   const urlLastFiveGames =
     "https://football-highlights-api.p.rapidapi.com/last-five-games?teamId=115669"; // ID atualizado para o Cruzeiro
@@ -31,8 +28,8 @@ async function fetchTeamStatistics() {
 
     // Gera o HTML para cada jogo
     dataLastFiveGames.forEach((game) => {
-        const matchid = game.id;
-      
+      const matchid = game.id;
+
       const homeTeamName = game.homeTeam.name || "Mandante";
       const awayTeamName = game.awayTeam.name || "Visitante";
       const leagueLogo = game.league.logo || "default-league-logo.png";
@@ -112,7 +109,6 @@ async function fetchTeamStatistics() {
       container.innerHTML += gameHTML;
       containerMobile.innerHTML += gameHTMLMobile;
     });
-    
   } catch (error) {
     console.error("Error:", error);
   }
@@ -120,4 +116,3 @@ async function fetchTeamStatistics() {
 
 // Chama a função para buscar os últimos cinco jogos
 fetchTeamStatistics();
-;

@@ -2,92 +2,95 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="https://www.cruzeiro.com.br/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leandro Hosken | Cruzeiro Stats</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <nav class="navbar bg-body fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="https://www.cruzeiro.com.br/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJhSURBVHgB7ZuLUcMwDIZVjgEYwRsAExAmACagI5QN2IBuQDaADQoTlA0CE4QNhEQUYoID6SO1af7vzpfDDtdYkSxZcogAAAAAsAWYOdNGCXFAaTGVdkkgjGhPIa0k8BMRzAk3ZDR2RAhT05i6lZ6AytbYOM1OJu5MAF0Uo9cmEcCRtIeAcBY6RpGJ7sUmk8m7XN4CQ882BkRTlqY1S8/kCgJf65Ayr01KrrfwZoZ5syzQfyntmkA3KSzSAAAA9pl99zQbbTUsfplSwmicRbGw6HdBiWJRehlNy719U5JmZlH6RluWw7436ttodTlrykzGc39QduKvFJ9r7/pEazDpe6MJSM3J/XGrpiiuREBPtENMi+/o+/Nl1DzTi9f/Ku1mkHSKt9PmjiSXo0jYmpPz78wHXxI6hHRPiSDPMgs8X7mOR1vXzYdU01E65KFOMamcdgE3GcC8pU2DqO6qZut5r9rsazIaGm5ii1mrr/D7tvyb01Umx1URoKj/h5sS05yGhqv6uQv0a3VikAygTbjX5Ow5Fm1ttpe4clDb283vEnsBzv7UiT6QhQ/ebS+jrnrw7+HEIKb87zBz9kvShbQTAg0tzcHJDx+uSj+fAR5HqpX13qxGQhfo03rjy9WG+IwAAAAAAAAAAACQEJY7TqbWn9r3YoqmU/HNWBeWVk2mSpsU3HwzVqZiZlEzilzVyp3XdWxXFY6mWP2yjpZ5HmlMcL/TGMrwJzJShsOnMWpTywh0CumCIpOSmw/V9c8JfPtmrDBPVp/GQKFQMYHk/kJsQltiDaKvA+ldY44AAAAAsAYfgWRKcjtn4OUAAAAASUVORK5CYII=" style="height: 55px;" alt="Logo Cruzeiro"></a>
-            <h1>Leandro Hosken</h1>
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Stats</button>
+  <nav class="navbar bg-body fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="https://www.cruzeiro.com.br/"><img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJhSURBVHgB7ZuLUcMwDIZVjgEYwRsAExAmACagI5QN2IBuQDaADQoTlA0CE4QNhEQUYoID6SO1af7vzpfDDtdYkSxZcogAAAAAsAWYOdNGCXFAaTGVdkkgjGhPIa0k8BMRzAk3ZDR2RAhT05i6lZ6AytbYOM1OJu5MAF0Uo9cmEcCRtIeAcBY6RpGJ7sUmk8m7XN4CQ882BkRTlqY1S8/kCgJf65Ayr01KrrfwZoZ5syzQfyntmkA3KSzSAAAA9pl99zQbbTUsfplSwmicRbGw6HdBiWJRehlNy719U5JmZlH6RluWw7436ttodTlrykzGc39QduKvFJ9r7/pEazDpe6MJSM3J/XGrpiiuREBPtENMi+/o+/Nl1DzTi9f/Ku1mkHSKt9PmjiSXo0jYmpPz78wHXxI6hHRPiSDPMgs8X7mOR1vXzYdU01E65KFOMamcdgE3GcC8pU2DqO6qZut5r9rsazIaGm5ii1mrr/D7tvyb01Umx1URoKj/h5sS05yGhqv6uQv0a3VikAygTbjX5Ow5Fm1ttpe4clDb283vEnsBzv7UiT6QhQ/ebS+jrnrw7+HEIKb87zBz9kvShbQTAg0tzcHJDx+uSj+fAR5HqpX13qxGQhfo03rjy9WG+IwAAAAAAAAAAACQEJY7TqbWn9r3YoqmU/HNWBeWVk2mSpsU3HwzVqZiZlEzilzVyp3XdWxXFY6mWP2yjpZ5HmlMcL/TGMrwJzJShsOnMWpTywh0CumCIpOSmw/V9c8JfPtmrDBPVp/GQKFQMYHk/kJsQltiDaKvA+ldY44AAAAAsAYfgWRKcjtn4OUAAAAASUVORK5CYII="
+          style="height: 55px;" alt="Logo Cruzeiro"></a>
+      <h1>Leandro Hosken</h1>
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+        aria-controls="offcanvasScrolling">Stats</button>
 
 
-        </div>
-    </nav>
+    </div>
+  </nav>
 
-    <main class="container  ">
-        <div id="game-container" class="row g-0">
-
-
-            <div class="sticker  g-0">
-                <a href="https://www.linkedin.com/in/leandrohosken/" target="_blank">LinkedIn</a>
-                <a href="https://lshv04.github.io/CV/" target="_blank">CV</a>
-                <a href="https://github.com/lshv04" target="_blank">Github</a>
-                <a href="https://wa.me/5531987670611" target="_blank">WhatsApp</a>
-                <a href="mailto:lshv04@gmail.com" target="_blank">Email</a>
-            </div>
+  <main class="container  ">
+    <div id="game-container" class="row g-0">
 
 
+      <div class="sticker  g-0">
+        <a href="https://www.linkedin.com/in/leandrohosken/" target="_blank">LinkedIn</a>
+        <a href="https://lshv04.github.io/CV/" target="_blank">CV</a>
+        <a href="https://github.com/lshv04" target="_blank">Github</a>
+        <a href="https://wa.me/5531987670611" target="_blank">WhatsApp</a>
+        <a href="mailto:lshv04@gmail.com" target="_blank">Email</a>
+      </div>
 
-        </div>
 
 
-        <div id="game-container-mobile" class="row g-0">
-
-        </div>
-
-
-    </main>
-
-    <!-- offcanvas -->
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-        id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Selecione a liga</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#seriea">
-                Serie A
-            </button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sulamericana">
-                Sul-Americana
-              </button>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cobadobrasil">
-                Copa do Brasil
-              </button>
-        </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="seriea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Campeonato Brasileiro serie A</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="stats-container-1">
-                        <!-- Stats Serie A -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    
-                </div>
-            </div>
-        </div>
+
+    <div id="game-container-mobile" class="row g-0">
+
     </div>
-    <!-- Modal -->
-<div class="modal fade" id="sulamericana" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+  </main>
+
+  <!-- offcanvas -->
+  <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+    id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Selecione a liga</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#seriea">
+        Serie A
+      </button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sulamericana">
+        Sul-Americana
+      </button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cobadobrasil">
+        Copa do Brasil
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="seriea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Campeonato Brasileiro serie A</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="stats-container-1">
+          <!-- Stats Serie A -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="sulamericana" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -95,11 +98,11 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="stats-container-2">
-           <!-- Stats Sul Americana -->
+          <!-- Stats Sul Americana -->
         </div>
-        <div class="modal-footer" >
+        <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          
+
         </div>
       </div>
     </div>
@@ -116,39 +119,40 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          
+
         </div>
       </div>
     </div>
   </div>
-<!-- Modal gamestats -->
+  <!-- Modal gamestats -->
 
-<div  id="modalgamestats">
-
-
+  <div id="modalgamestats">
 
 
 
-</div>
-
-<footer class="container-fluid">
-  <div class="container foot">
-    <p class="text-center">Proejto Desenvolvido por Leandro Hosken</p>
-      <img src="https://www.imagensempng.com.br/wp-content/uploads/2021/01/74.png" style="height: 150px;" class="img-fluid" alt="Escudo fechado do Cruzeiro">
 
 
   </div>
 
+  <footer class="container-fluid">
+    <div class="container foot">
+      <p class="text-center textfooter">Proejto Desenvolvido por Leandro Hosken</p>
+      <img src="https://www.imagensempng.com.br/wp-content/uploads/2021/01/74.png" style="height: 150px;"
+        class="img-fluid" alt="Escudo fechado do Cruzeiro">
 
-</footer>
+
+    </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <!-- <script src="lastFiveGamesApi.js"></script>  -->
-  <!-- <script src="stats.js"></script> -->
-   <!-- <script src="gamestats.js"></script> -->
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="lastFiveGamesApi.js"></script>
+  <script src="stats.js"></script>
+  <script src="gamestats.js"></script>
 </body>
 
 </html>
