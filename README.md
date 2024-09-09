@@ -38,7 +38,8 @@ Calls limitadas. A API utilizada é uma API paga, e o plano básico gratuito é 
 ![image](https://github.com/user-attachments/assets/520b3e2c-4949-4236-bf62-52fab2046f56)  
 ![image](https://github.com/user-attachments/assets/a274251c-2082-483d-acae-3bc793bc5303)  
 ![image](https://github.com/user-attachments/assets/9a392e60-31cc-4f10-8df2-2f06138e8c98)  
-![image](https://github.com/user-attachments/assets/9d42ee05-d673-4dd9-8c4c-295957160811)  
+![image](https://github.com/user-attachments/assets/7bec6d21-072a-489a-ac60-18921f3f77d5)  
+
 
 
 
