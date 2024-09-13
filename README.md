@@ -21,7 +21,7 @@ Utilizei o media query para criar um card completamente diferente para telas men
 **CSS3**: Para estilização e layout,     
 **Bootstrap**: Para criação de grids e componentes.      
 **Funções**: Criação de funções de cores e fontes para padronização e melhor manutenção do código.      
-**Media Query** : Criado múltiplos níveis para responsividade perfeita em múltiplas telas. 
+**Media Query** : Criado múltiplos níveis para responsividade perfeita em múltiplas telas.  
 **Javascript**  : Consumir o conteúdo da API,manipular html e adicionar dinamicamente seus respectivos end-points.   
 
 **Principais desafios**:
