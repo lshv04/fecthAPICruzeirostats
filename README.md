@@ -54,7 +54,7 @@ https://github.com/user-attachments/assets/932b8410-8f89-4eeb-81a0-8f268d1e241f
       
 ## 📁 Acesso ao projeto  
 
-[Veja o projeto final do curso em funcionamento](https://lshv04.github.io/fecthAPICruzeirostats/).  
+[Veja o projeto final do curso em funcionamento](https://lshv04.github.io/fecthAPICruzeirostats-14/).  
 
 
 
